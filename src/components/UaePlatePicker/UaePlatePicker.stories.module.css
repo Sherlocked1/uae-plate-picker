@@ -1,0 +1,14 @@
+.controlledLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 360px;
+}
+
+.valueOutput {
+  margin: 0;
+  padding: 0.75rem;
+  background: #f4f4f5;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}

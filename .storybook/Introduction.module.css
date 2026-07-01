@@ -1,0 +1,49 @@
+.page {
+  max-width: 42rem;
+  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+}
+
+.page h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.page h2 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.page h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.lead {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  color: #3f3f46;
+}
+
+.page pre {
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  background: #f4f4f5;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.page code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.page ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.page a {
+  color: #8b1538;
+}

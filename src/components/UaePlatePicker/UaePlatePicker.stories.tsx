@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { UaePlatePicker } from './UaePlatePicker';
 import { DEFAULT_PLATE_VALUE } from '../../data/emirates';
 import type { PrivatePlateValue } from '../../types';
+import storyStyles from './UaePlatePicker.stories.module.css';
 
 const meta = {
   title: 'Components/UaePlatePicker',
@@ -17,11 +18,29 @@ const meta = {
     },
   },
   argTypes: {
+    value: {
+      description: 'Controlled plate value',
+      table: { type: { summary: 'PrivatePlateValue' } },
+    },
+    defaultValue: {
+      description: 'Initial value when uncontrolled',
+      table: { type: { summary: 'PrivatePlateValue' }, defaultValue: { summary: 'Dubai / A / empty' } },
+    },
+    onChange: {
+      description: 'Called when the selection changes',
+      table: { type: { summary: '(value: PrivatePlateValue) => void' } },
+    },
     disabled: {
       control: 'boolean',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     showPreview: {
       control: 'boolean',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
+    },
+    className: {
+      description: 'Additional wrapper class name',
+      table: { type: { summary: 'string' } },
     },
   },
 } satisfies Meta<typeof UaePlatePicker>;
@@ -33,6 +52,13 @@ export const Default: Story = {
   args: {
     defaultValue: DEFAULT_PLATE_VALUE,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Uncontrolled picker with default Dubai plate value.',
+      },
+    },
+  },
 };
 
 export const WithInitialValue: Story = {
@@ -43,9 +69,24 @@ export const WithInitialValue: Story = {
       number: '98765',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Uncontrolled picker with a pre-filled Abu Dhabi plate.',
+      },
+    },
+  },
 };
 
 export const Controlled: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Controlled usage with `value` and `onChange`. The JSON block below reflects the current plate state.',
+      },
+    },
+  },
   render: function ControlledStory() {
     const [value, setValue] = useState<PrivatePlateValue>({
       emirate: 'sharjah',
@@ -54,19 +95,9 @@ export const Controlled: Story = {
     });
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', minWidth: 360 }}>
+      <div className={storyStyles.controlledLayout}>
         <UaePlatePicker value={value} onChange={setValue} />
-        <pre
-          style={{
-            margin: 0,
-            padding: '0.75rem',
-            background: '#f4f4f5',
-            borderRadius: 6,
-            fontSize: '0.8rem',
-          }}
-        >
-          {JSON.stringify(value, null, 2)}
-        </pre>
+        <pre className={storyStyles.valueOutput}>{JSON.stringify(value, null, 2)}</pre>
       </div>
     );
   },
@@ -81,11 +112,25 @@ export const Disabled: Story = {
     },
     disabled: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'All form controls are disabled; the preview remains visible.',
+      },
+    },
+  },
 };
 
 export const WithoutPreview: Story = {
   args: {
     defaultValue: DEFAULT_PLATE_VALUE,
     showPreview: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Form-only layout without the live plate preview section.',
+      },
+    },
   },
 };

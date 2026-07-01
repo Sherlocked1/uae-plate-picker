@@ -17,4 +17,3 @@ export {
   getDefaultCodeForEmirate,
 } from './data/emirates';
 
-export { PLATE_IMAGES } from './assets/plates';

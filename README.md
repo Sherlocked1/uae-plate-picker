@@ -5,18 +5,18 @@ React component library for selecting and previewing UAE **private** license pla
 ## Features
 
 - Interactive `UaePlatePicker` for emirate, code, and number selection
-- `PlatePreview` component with emirate-specific visual themes
+- `PlatePreview` component with emirate-specific SVG plate renders
 - Support for all seven UAE emirates
 - Controlled and uncontrolled usage
-- Image-ready extension points for real plate assets
+- Optional custom background image override on `PlatePreview`
 - Storybook documentation and interactive examples
 
 ## Requirements
 
 - Node.js 18+
-- pnpm 9+
+- pnpm 9+ (for development of this repo)
 
-This project uses **pnpm only**. Do not use npm or yarn.
+**Peer dependencies:** `react` and `react-dom` (^18 or ^19).
 
 ## Installation
 
@@ -24,11 +24,23 @@ This project uses **pnpm only**. Do not use npm or yarn.
 pnpm add @uae-plate-picker/react
 ```
 
+## Styles
+
+Import the bundled stylesheet once in your app entry (e.g. `main.tsx` or `_app.tsx`):
+
+```tsx
+import '@uae-plate-picker/react/style.css';
+```
+
+Components use CSS Modules internally; the stylesheet is required for correct layout and form styling.
+
 ## Usage
 
 ```tsx
+import { useState } from 'react';
 import { UaePlatePicker } from '@uae-plate-picker/react';
 import type { PrivatePlateValue } from '@uae-plate-picker/react';
+import '@uae-plate-picker/react/style.css';
 
 function App() {
   const [plate, setPlate] = useState<PrivatePlateValue>({
@@ -45,20 +57,21 @@ function App() {
 
 ```tsx
 import { PlatePreview } from '@uae-plate-picker/react';
+import '@uae-plate-picker/react/style.css';
 
 <PlatePreview
   value={{ emirate: 'abu-dhabi', code: '5', number: '67890' }}
 />
 ```
 
-### With a real plate background image
+### With a custom background image
 
-When you have official plate images, pass them via emirate config or the preview prop:
+To use your own plate artwork instead of the built-in SVG, pass a URL to `backgroundImage`. Code and number are overlaid automatically:
 
 ```tsx
 <PlatePreview
   value={{ emirate: 'dubai', code: 'A', number: '12345' }}
-  backgroundImage="/assets/plates/dubai-private.png"
+  backgroundImage="/custom/dubai-plate.png"
 />
 ```
 
@@ -99,7 +112,7 @@ pnpm build:storybook
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `value` | `PrivatePlateValue` | required | Plate to render |
-| `backgroundImage` | `string` | — | Optional plate image URL |
+| `backgroundImage` | `string` | — | Optional custom plate image URL (overlays code and number) |
 | `className` | `string` | — | Additional wrapper class |
 
 ### `PrivatePlateValue`
@@ -112,33 +125,27 @@ type PrivatePlateValue = {
 };
 ```
 
-## Adding real plate images
+## Plate rendering
 
-Plate images live in [`src/assets/plates/`](src/assets/plates/) and are wired automatically via [`src/assets/plates/index.ts`](src/assets/plates/index.ts).
+Each emirate renders a vector SVG plate with the correct layout, wordmark, and GL Nummernschild-style digits. No external plate image assets are required at runtime.
 
-| File | Emirate |
-|------|---------|
-| `abu_dhabi.png` | Abu Dhabi |
-| `dubai.png` | Dubai |
-| `sharjah.png` | Sharjah |
-| `ajman.png` | Ajman |
-| `umm_al_quwain.png` | Umm Al Quwain |
-| `ras_al_khaimah.png` | Ras Al Khaimah |
-| `fujairah.png` | Fujairah |
-
-To replace a plate image, drop a new PNG into that folder (keep the same filename) and rebuild. You can also override per-instance:
-
-```tsx
-<PlatePreview
-  value={{ emirate: 'dubai', code: 'A', number: '12345' }}
-  backgroundImage="/custom/dubai.png"
-/>
-```
+To swap in a raster plate image instead, use the `backgroundImage` prop on `PlatePreview` (see above).
 
 ## Scope
 
 This library currently supports **private plates only**. Commercial, taxi, motorcycle, and diplomatic plate types are out of scope for v0.1.
 
+## Publishing
+
+For maintainers preparing a release to the public npm registry:
+
+1. Bump `version` in `package.json`
+2. Update `CHANGELOG.md`
+3. Run `pnpm build` (also runs automatically via `prepublishOnly`)
+4. Ensure you own the `@uae-plate-picker` npm scope and are logged in (`npm login`)
+5. Publish: `pnpm publish --access public`
+6. Tag the release on GitHub
+
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).

@@ -1,4 +1,6 @@
 .picker {
+  --uae-accent: #8b1538;
+
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -57,7 +59,7 @@
 .select:focus,
 .input:focus {
   outline: none;
-  border-color: #8b1538;
+  border-color: var(--uae-accent);
   box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.15);
 }
 

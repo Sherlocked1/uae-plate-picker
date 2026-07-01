@@ -1,5 +1,4 @@
 import type { Emirate, EmirateConfig } from '../types';
-import { PLATE_IMAGES } from '../assets/plates';
 
 export const EMIRATES: EmirateConfig[] = [
   {
@@ -9,7 +8,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '50'],
     maxDigits: 5,
     theme: 'abu-dhabi',
-    backgroundImage: PLATE_IMAGES['abu-dhabi'],
   },
   {
     id: 'dubai',
@@ -18,7 +16,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'BB', 'CC', 'DD', 'EE'],
     maxDigits: 5,
     theme: 'dubai',
-    backgroundImage: PLATE_IMAGES.dubai,
   },
   {
     id: 'sharjah',
@@ -27,7 +24,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['1', '2', '3', '4'],
     maxDigits: 5,
     theme: 'sharjah',
-    backgroundImage: PLATE_IMAGES.sharjah,
   },
   {
     id: 'ajman',
@@ -36,7 +32,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     maxDigits: 5,
     theme: 'ajman',
-    backgroundImage: PLATE_IMAGES.ajman,
   },
   {
     id: 'umm-al-quwain',
@@ -45,7 +40,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     maxDigits: 5,
     theme: 'umm-al-quwain',
-    backgroundImage: PLATE_IMAGES['umm-al-quwain'],
   },
   {
     id: 'ras-al-khaimah',
@@ -54,7 +48,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     maxDigits: 5,
     theme: 'ras-al-khaimah',
-    backgroundImage: PLATE_IMAGES['ras-al-khaimah'],
   },
   {
     id: 'fujairah',
@@ -63,7 +56,6 @@ export const EMIRATES: EmirateConfig[] = [
     codes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     maxDigits: 5,
     theme: 'fujairah',
-    backgroundImage: PLATE_IMAGES.fujairah,
   },
 ];
 

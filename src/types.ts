@@ -23,8 +23,6 @@ export type EmirateConfig = {
   maxDigits: number;
   /** Visual theme key used by PlatePreview */
   theme: string;
-  /** Optional background image URL for future real plate assets */
-  backgroundImage?: string;
 };
 
 export type UaePlatePickerProps = {
@@ -40,6 +38,6 @@ export type UaePlatePickerProps = {
 export type PlatePreviewProps = {
   value: PrivatePlateValue;
   className?: string;
-  /** Optional override for background image per emirate */
+  /** Optional custom plate background image with text overlay */
   backgroundImage?: string;
 };

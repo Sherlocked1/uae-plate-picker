@@ -1,90 +1,37 @@
-import type { PlatePreviewProps } from '../../types';
+import type { ComponentType } from 'react';
+import type { Emirate, PlatePreviewProps } from '../../types';
 import { getEmirateConfig } from '../../data/emirates';
 import { AbuDhabiPlateSvg } from './AbuDhabiPlateSvg';
+import { AjmanPlateSvg } from './AjmanPlateSvg';
 import { DubaiPlateSvg } from './DubaiPlateSvg';
 import { SharjahPlateSvg } from './SharjahPlateSvg';
+import { RasAlKhaimahPlateSvg } from './RasAlKhaimahPlateSvg';
+import { FujairahPlateSvg } from './FujairahPlateSvg';
+import { UmmAlQuwainPlateSvg } from './UmmAlQuwainPlateSvg';
 import styles from './PlatePreview.module.css';
 
-const THEME_CLASS_MAP: Record<string, string> = {
-  'abu-dhabi': styles.abuDhabi,
-  dubai: styles.dubai,
-  sharjah: styles.sharjah,
-  ajman: styles.ajman,
-  'umm-al-quwain': styles.ummAlQuwain,
-  'ras-al-khaimah': styles.rasAlKhaimah,
-  fujairah: styles.fujairah,
+type PlateSvgProps = {
+  code: string;
+  number: string;
+  className?: string;
 };
 
-const OVERLAY_THEME_CLASS_MAP: Record<string, string> = {
-  'abu-dhabi': styles.overlayAbuDhabi,
-  dubai: styles.overlayDubai,
-  sharjah: styles.overlaySharjah,
-  ajman: styles.overlayAjman,
-  'umm-al-quwain': styles.overlayUmmAlQuwain,
-  'ras-al-khaimah': styles.overlayRasAlKhaimah,
-  fujairah: styles.overlayFujairah,
+const EMIRATE_PLATE_COMPONENTS: Record<Emirate, ComponentType<PlateSvgProps>> = {
+  'abu-dhabi': AbuDhabiPlateSvg,
+  dubai: DubaiPlateSvg,
+  sharjah: SharjahPlateSvg,
+  ajman: AjmanPlateSvg,
+  'umm-al-quwain': UmmAlQuwainPlateSvg,
+  'ras-al-khaimah': RasAlKhaimahPlateSvg,
+  fujairah: FujairahPlateSvg,
 };
 
 export function PlatePreview({ value, className, backgroundImage }: PlatePreviewProps) {
   const config = getEmirateConfig(value.emirate);
-  const themeClass = THEME_CLASS_MAP[config.theme] ?? styles.dubai;
-  const overlayClass = OVERLAY_THEME_CLASS_MAP[config.theme] ?? styles.overlayDubai;
-  const imageSrc = backgroundImage ?? config.backgroundImage;
   const displayCode = value.code ?? '';
   const displayNumber = value.number || '';
 
-  if (value.emirate === 'abu-dhabi' && !backgroundImage) {
-    return (
-      <div
-        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
-        role="img"
-        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
-        data-emirate={value.emirate}
-      >
-        <AbuDhabiPlateSvg
-          code={displayCode || '—'}
-          number={displayNumber || '00000'}
-          className={styles.plateImage}
-        />
-      </div>
-    );
-  }
-
-  if (value.emirate === 'dubai' && !backgroundImage) {
-    return (
-      <div
-        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
-        role="img"
-        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
-        data-emirate={value.emirate}
-      >
-        <DubaiPlateSvg
-          code={displayCode || '—'}
-          number={displayNumber || '00000'}
-          className={styles.plateImage}
-        />
-      </div>
-    );
-  }
-
-  if (value.emirate === 'sharjah' && !backgroundImage) {
-    return (
-      <div
-        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
-        role="img"
-        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
-        data-emirate={value.emirate}
-      >
-        <SharjahPlateSvg
-          code={displayCode || '—'}
-          number={displayNumber || '00000'}
-          className={styles.plateImage}
-        />
-      </div>
-    );
-  }
-
-  if (imageSrc) {
+  if (backgroundImage) {
     return (
       <div
         className={[styles.imagePlate, className].filter(Boolean).join(' ')}
@@ -92,25 +39,15 @@ export function PlatePreview({ value, className, backgroundImage }: PlatePreview
         aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '—'}`}
         data-emirate={value.emirate}
       >
-        <img src={imageSrc} alt="" aria-hidden="true" className={styles.plateImage} />
-        <div className={[styles.overlay, overlayClass].join(' ')}>
+        <img src={backgroundImage} alt="" aria-hidden="true" className={styles.plateImage} />
+        <div className={styles.overlay}>
           <span
-            className={[
-              styles.codeOverlay,
-              !displayCode && styles.placeholder,
-            ]
-              .filter(Boolean)
-              .join(' ')}
+            className={[styles.codeOverlay, !displayCode && styles.placeholder].filter(Boolean).join(' ')}
           >
             {displayCode || '—'}
           </span>
           <span
-            className={[
-              styles.numberOverlay,
-              !displayNumber && styles.placeholder,
-            ]
-              .filter(Boolean)
-              .join(' ')}
+            className={[styles.numberOverlay, !displayNumber && styles.placeholder].filter(Boolean).join(' ')}
           >
             {displayNumber || '00000'}
           </span>
@@ -119,27 +56,20 @@ export function PlatePreview({ value, className, backgroundImage }: PlatePreview
     );
   }
 
+  const PlateSvg = EMIRATE_PLATE_COMPONENTS[value.emirate];
+
   return (
     <div
-      className={[styles.plate, themeClass, className].filter(Boolean).join(' ')}
+      className={[styles.imagePlate, className].filter(Boolean).join(' ')}
       role="img"
       aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
       data-emirate={value.emirate}
     >
-      <div className={styles.content}>
-        <div className={styles.emirateBadge}>
-          <span>{config.label}</span>
-          <span className={styles.emirateBadgeAr}>{config.labelAr}</span>
-        </div>
-        <div className={styles.plateNumber}>
-          <span className={[styles.code, !displayCode && styles.placeholder].filter(Boolean).join(' ')}>
-            {displayCode || '—'}
-          </span>
-          <span className={[styles.number, !displayNumber && styles.placeholder].filter(Boolean).join(' ')}>
-            {displayNumber || '00000'}
-          </span>
-        </div>
-      </div>
+      <PlateSvg
+        code={displayCode || '—'}
+        number={displayNumber || '00000'}
+        className={styles.plateImage}
+      />
     </div>
   );
 }
