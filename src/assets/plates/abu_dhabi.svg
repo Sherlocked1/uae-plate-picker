@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1000"
+     height="220"
+     viewBox="0 0 1000 220">
+
+    <defs>
+        <style>
+            .plate-number {
+                font-family: "GL Nummernschild";
+                font-size: 132px;
+                fill: #000;
+                dominant-baseline: middle;
+            }
+
+            .category {
+                font-family: "GL Nummernschild";
+                font-size: 98px;
+                fill: #fff;
+                dominant-baseline: middle;
+            }
+
+            .arabic {
+                font-family: "Noto Naskh Arabic", "Amiri", serif;
+                font-size: 34px;
+                fill: #000;
+            }
+
+            .english {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 36px;
+                fill: #000;
+                letter-spacing: 2px;
+            }
+        </style>
+    </defs>
+
+    <!-- Plate -->
+    <rect
+        x="5"
+        y="5"
+        width="990"
+        height="210"
+        rx="18"
+        ry="18"
+        fill="#fff"
+        stroke="#000"
+        stroke-width="6"/>
+
+    <!-- Red Section -->
+    <rect
+        x="8"
+        y="8"
+        width="185"
+        height="204"
+        rx="14"
+        ry="14"
+        fill="#d71920"/>
+
+    <!-- Category -->
+    <text
+        id="plate-category"
+        class="category"
+        x="100"
+        y="115"
+        text-anchor="middle">
+        20
+    </text>
+
+    <!-- Arabic -->
+    <text
+        class="arabic"
+        x="325"
+        y="52"
+        text-anchor="middle">
+        الإمارات
+    </text>
+
+    <text
+        class="arabic"
+        x="325"
+        y="104"
+        text-anchor="middle">
+        أبوظبي
+    </text>
+
+    <!-- English -->
+    <text
+        class="english"
+        x="325"
+        y="170"
+        text-anchor="middle">
+        U.A.E. A.D.
+    </text>
+
+    <!-- Plate Number -->
+    <text
+        id="plate-number"
+        class="plate-number"
+        x="710"
+        y="118"
+        text-anchor="middle">
+        10234
+    </text>
+
+</svg>

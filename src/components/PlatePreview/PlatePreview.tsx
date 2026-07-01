@@ -1,5 +1,8 @@
 import type { PlatePreviewProps } from '../../types';
 import { getEmirateConfig } from '../../data/emirates';
+import { AbuDhabiPlateSvg } from './AbuDhabiPlateSvg';
+import { DubaiPlateSvg } from './DubaiPlateSvg';
+import { SharjahPlateSvg } from './SharjahPlateSvg';
 import styles from './PlatePreview.module.css';
 
 const THEME_CLASS_MAP: Record<string, string> = {
@@ -29,6 +32,57 @@ export function PlatePreview({ value, className, backgroundImage }: PlatePreview
   const imageSrc = backgroundImage ?? config.backgroundImage;
   const displayCode = value.code ?? '';
   const displayNumber = value.number || '';
+
+  if (value.emirate === 'abu-dhabi' && !backgroundImage) {
+    return (
+      <div
+        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
+        role="img"
+        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
+        data-emirate={value.emirate}
+      >
+        <AbuDhabiPlateSvg
+          code={displayCode || '—'}
+          number={displayNumber || '00000'}
+          className={styles.plateImage}
+        />
+      </div>
+    );
+  }
+
+  if (value.emirate === 'dubai' && !backgroundImage) {
+    return (
+      <div
+        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
+        role="img"
+        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
+        data-emirate={value.emirate}
+      >
+        <DubaiPlateSvg
+          code={displayCode || '—'}
+          number={displayNumber || '00000'}
+          className={styles.plateImage}
+        />
+      </div>
+    );
+  }
+
+  if (value.emirate === 'sharjah' && !backgroundImage) {
+    return (
+      <div
+        className={[styles.imagePlate, className].filter(Boolean).join(' ')}
+        role="img"
+        aria-label={`${config.label} private plate ${displayCode || '—'} ${displayNumber || '00000'}`}
+        data-emirate={value.emirate}
+      >
+        <SharjahPlateSvg
+          code={displayCode || '—'}
+          number={displayNumber || '00000'}
+          className={styles.plateImage}
+        />
+      </div>
+    );
+  }
 
   if (imageSrc) {
     return (

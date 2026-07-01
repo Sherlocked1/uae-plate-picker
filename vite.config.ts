@@ -5,15 +5,22 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const isStorybook = ['storybook', 'build:storybook'].includes(process.env.npm_lifecycle_event ?? '');
 
 export default defineConfig({
   plugins: [
     react(),
-    dts({
-      include: ['src'],
-      exclude: ['src/**/*.stories.tsx'],
-      rollupTypes: true,
-    }),
+    ...(
+      isStorybook
+        ? []
+        : [
+            dts({
+              include: ['src'],
+              exclude: ['src/**/*.stories.tsx'],
+              bundleTypes: true,
+            }),
+          ]
+    ),
   ],
   build: {
     lib: {
