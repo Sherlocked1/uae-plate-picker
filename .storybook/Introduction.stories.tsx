@@ -16,8 +16,19 @@ function IntroductionPage() {
 
       <h2>Installation</h2>
       <pre>
-        <code>pnpm add @sherlocked1/uae-plate-picker</code>
+        <code>npm install @sherlocked1/uae-plate-picker</code>
       </pre>
+      <p>
+        Also available via <code>pnpm add</code> or <code>yarn add</code>. Published on{' '}
+        <a
+          href="https://www.npmjs.com/package/@sherlocked1/uae-plate-picker"
+          target="_blank"
+          rel="noreferrer"
+        >
+          npm
+        </a>
+        .
+      </p>
       <p>
         <strong>Peer dependencies:</strong> <code>react</code> and <code>react-dom</code> (^18 or
         ^19).
@@ -75,12 +86,27 @@ import '@sherlocked1/uae-plate-picker/style.css';
         </li>
       </ul>
 
-      <h2>Repository</h2>
-      <p>
-        <a href="https://github.com/sherlocked1/uae-plate-picker" target="_blank" rel="noreferrer">
-          github.com/Sherlocked1/uae-plate-picker
-        </a>
-      </p>
+      <h2>Links</h2>
+      <ul>
+        <li>
+          <a
+            href="https://www.npmjs.com/package/@sherlocked1/uae-plate-picker"
+            target="_blank"
+            rel="noreferrer"
+          >
+            npm — @sherlocked1/uae-plate-picker
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/Sherlocked1/uae-plate-picker"
+            target="_blank"
+            rel="noreferrer"
+          >
+            github.com/Sherlocked1/uae-plate-picker
+          </a>
+        </li>
+      </ul>
     </article>
   );
 }

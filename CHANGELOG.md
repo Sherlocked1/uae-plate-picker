@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optional `backgroundImage` prop on `PlatePreview` for custom plate artwork
 - Controlled and uncontrolled usage patterns
 - Storybook documentation with Introduction page and autodocs for both components
-- Public npm package metadata and publish configuration
+- Initial public release on npm as `@sherlocked1/uae-plate-picker`
 
 ### Notes
 
