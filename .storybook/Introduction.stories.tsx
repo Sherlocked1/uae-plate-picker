@@ -90,6 +90,15 @@ import '@sherlocked1/uae-plate-picker/style.css';
       <ul>
         <li>
           <a
+            href="https://sherlocked1.github.io/uae-plate-picker/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Live demo — Storybook on GitHub Pages
+          </a>
+        </li>
+        <li>
+          <a
             href="https://www.npmjs.com/package/@sherlocked1/uae-plate-picker"
             target="_blank"
             rel="noreferrer"

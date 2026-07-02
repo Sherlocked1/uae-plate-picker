@@ -1,6 +1,6 @@
 {
   "name": "@sherlocked1/uae-plate-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React component library for UAE private license plate selection and preview",
   "type": "module",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "plate-picker",
     "emirates"
   ],
-  "homepage": "https://github.com/Sherlocked1/uae-plate-picker#readme",
+  "homepage": "https://sherlocked1.github.io/uae-plate-picker/",
   "bugs": "https://github.com/Sherlocked1/uae-plate-picker/issues",
   "repository": {
     "type": "git",

@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-07-01
+
+### Added
+
+- Storybook deployed to GitHub Pages at [sherlocked1.github.io/uae-plate-picker](https://sherlocked1.github.io/uae-plate-picker/)
+- Live demo links in README and npm `homepage` field
+
 ## [0.1.0] - 2026-07-01
 
 ### Added
@@ -20,4 +27,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Private plates only; commercial, taxi, motorcycle, and diplomatic plates are out of scope for v0.1
 
+[0.1.1]: https://github.com/Sherlocked1/uae-plate-picker/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Sherlocked1/uae-plate-picker/releases/tag/v0.1.0

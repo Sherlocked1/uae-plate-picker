@@ -1,10 +1,12 @@
 # UAE Private Plate Picker
 
 [![npm version](https://img.shields.io/npm/v/@sherlocked1/uae-plate-picker.svg)](https://www.npmjs.com/package/@sherlocked1/uae-plate-picker)
+[![live demo](https://img.shields.io/badge/demo-storybook-ff4785)](https://sherlocked1.github.io/uae-plate-picker/)
 [![license](https://img.shields.io/npm/l/@sherlocked1/uae-plate-picker.svg)](https://github.com/Sherlocked1/uae-plate-picker/blob/main/LICENSE)
 
 React component library for selecting and previewing UAE **private** license plates. Built with TypeScript, CSS Modules, Vite, and documented with Storybook.
 
+- **Live demo:** [sherlocked1.github.io/uae-plate-picker](https://sherlocked1.github.io/uae-plate-picker/)
 - **npm:** [@sherlocked1/uae-plate-picker](https://www.npmjs.com/package/@sherlocked1/uae-plate-picker)
 - **Repository:** [github.com/Sherlocked1/uae-plate-picker](https://github.com/Sherlocked1/uae-plate-picker)
 
@@ -36,6 +38,19 @@ pnpm add @sherlocked1/uae-plate-picker
 ```bash
 yarn add @sherlocked1/uae-plate-picker
 ```
+
+## Live demo
+
+Interactive Storybook with component docs and examples:
+
+**[Open Storybook →](https://sherlocked1.github.io/uae-plate-picker/)**
+
+| Demo | Link |
+|------|------|
+| Full picker | [Default](https://sherlocked1.github.io/uae-plate-picker/?path=/story/components-uaeplatepicker--default) |
+| Controlled usage | [Controlled](https://sherlocked1.github.io/uae-plate-picker/?path=/story/components-uaeplatepicker--controlled) |
+| All emirates gallery | [All emirates](https://sherlocked1.github.io/uae-plate-picker/?path=/story/components-platepreview--all-emirates) |
+| Custom background | [With background image](https://sherlocked1.github.io/uae-plate-picker/?path=/story/components-platepreview--with-background-image) |
 
 ## Styles
 
