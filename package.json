@@ -1,5 +1,5 @@
 {
-  "name": "@sherlocked1/react",
+  "name": "@sherlocked1/uae-plate-picker",
   "version": "0.1.0",
   "description": "React component library for UAE private license plate selection and preview",
   "type": "module",

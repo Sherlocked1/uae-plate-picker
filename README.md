@@ -21,7 +21,7 @@ React component library for selecting and previewing UAE **private** license pla
 ## Installation
 
 ```bash
-pnpm add @sherlocked1/react
+pnpm add @sherlocked1/uae-plate-picker
 ```
 
 ## Styles
@@ -29,7 +29,7 @@ pnpm add @sherlocked1/react
 Import the bundled stylesheet once in your app entry (e.g. `main.tsx` or `_app.tsx`):
 
 ```tsx
-import '@sherlocked1/react/style.css';
+import '@sherlocked1/uae-plate-picker/style.css';
 ```
 
 Components use CSS Modules internally; the stylesheet is required for correct layout and form styling.
@@ -38,9 +38,9 @@ Components use CSS Modules internally; the stylesheet is required for correct la
 
 ```tsx
 import { useState } from 'react';
-import { UaePlatePicker } from '@sherlocked1/react';
-import type { PrivatePlateValue } from '@sherlocked1/react';
-import '@sherlocked1/react/style.css';
+import { UaePlatePicker } from '@sherlocked1/uae-plate-picker';
+import type { PrivatePlateValue } from '@sherlocked1/uae-plate-picker';
+import '@sherlocked1/uae-plate-picker/style.css';
 
 function App() {
   const [plate, setPlate] = useState<PrivatePlateValue>({
@@ -56,8 +56,8 @@ function App() {
 ### Plate preview only
 
 ```tsx
-import { PlatePreview } from '@sherlocked1/react';
-import '@sherlocked1/react/style.css';
+import { PlatePreview } from '@sherlocked1/uae-plate-picker';
+import '@sherlocked1/uae-plate-picker/style.css';
 
 <PlatePreview
   value={{ emirate: 'abu-dhabi', code: '5', number: '67890' }}
