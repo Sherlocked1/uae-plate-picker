@@ -21,7 +21,7 @@ React component library for selecting and previewing UAE **private** license pla
 ## Installation
 
 ```bash
-pnpm add @uae-plate-picker/react
+pnpm add @sherlocked1/react
 ```
 
 ## Styles
@@ -29,7 +29,7 @@ pnpm add @uae-plate-picker/react
 Import the bundled stylesheet once in your app entry (e.g. `main.tsx` or `_app.tsx`):
 
 ```tsx
-import '@uae-plate-picker/react/style.css';
+import '@sherlocked1/react/style.css';
 ```
 
 Components use CSS Modules internally; the stylesheet is required for correct layout and form styling.
@@ -38,9 +38,9 @@ Components use CSS Modules internally; the stylesheet is required for correct la
 
 ```tsx
 import { useState } from 'react';
-import { UaePlatePicker } from '@uae-plate-picker/react';
-import type { PrivatePlateValue } from '@uae-plate-picker/react';
-import '@uae-plate-picker/react/style.css';
+import { UaePlatePicker } from '@sherlocked1/react';
+import type { PrivatePlateValue } from '@sherlocked1/react';
+import '@sherlocked1/react/style.css';
 
 function App() {
   const [plate, setPlate] = useState<PrivatePlateValue>({
@@ -56,8 +56,8 @@ function App() {
 ### Plate preview only
 
 ```tsx
-import { PlatePreview } from '@uae-plate-picker/react';
-import '@uae-plate-picker/react/style.css';
+import { PlatePreview } from '@sherlocked1/react';
+import '@sherlocked1/react/style.css';
 
 <PlatePreview
   value={{ emirate: 'abu-dhabi', code: '5', number: '67890' }}
@@ -142,7 +142,7 @@ For maintainers preparing a release to the public npm registry:
 1. Bump `version` in `package.json`
 2. Update `CHANGELOG.md`
 3. Run `pnpm build` (also runs automatically via `prepublishOnly`)
-4. Ensure you own the `@uae-plate-picker` npm scope and are logged in (`npm login`)
+4. Ensure you own the `@sherlocked1` npm scope and are logged in (`npm login`)
 5. Publish: `pnpm publish --access public`
 6. Tag the release on GitHub
 

@@ -16,7 +16,7 @@ function IntroductionPage() {
 
       <h2>Installation</h2>
       <pre>
-        <code>pnpm add @uae-plate-picker/react</code>
+        <code>pnpm add @sherlocked1/react</code>
       </pre>
       <p>
         <strong>Peer dependencies:</strong> <code>react</code> and <code>react-dom</code> (^18 or
@@ -26,7 +26,7 @@ function IntroductionPage() {
       <h2>Styles</h2>
       <p>Import the bundled stylesheet once in your app entry (e.g. <code>main.tsx</code>):</p>
       <pre>
-        <code>{`import '@uae-plate-picker/react/style.css';`}</code>
+        <code>{`import '@sherlocked1/react/style.css';`}</code>
       </pre>
       <p>
         Components use CSS Modules internally; the stylesheet is required for correct layout and
@@ -37,9 +37,9 @@ function IntroductionPage() {
       <h3>Full picker</h3>
       <pre>
         <code>{`import { useState } from 'react';
-import { UaePlatePicker } from '@uae-plate-picker/react';
-import type { PrivatePlateValue } from '@uae-plate-picker/react';
-import '@uae-plate-picker/react/style.css';
+import { UaePlatePicker } from '@sherlocked1/react';
+import type { PrivatePlateValue } from '@sherlocked1/react';
+import '@sherlocked1/react/style.css';
 
 function App() {
   const [plate, setPlate] = useState<PrivatePlateValue>({
@@ -54,8 +54,8 @@ function App() {
 
       <h3>Preview only</h3>
       <pre>
-        <code>{`import { PlatePreview } from '@uae-plate-picker/react';
-import '@uae-plate-picker/react/style.css';
+        <code>{`import { PlatePreview } from '@sherlocked1/react';
+import '@sherlocked1/react/style.css';
 
 <PlatePreview value={{ emirate: 'abu-dhabi', code: '5', number: '67890' }} />`}</code>
       </pre>
@@ -77,7 +77,7 @@ import '@uae-plate-picker/react/style.css';
 
       <h2>Repository</h2>
       <p>
-        <a href="https://github.com/Sherlocked1/uae-plate-picker" target="_blank" rel="noreferrer">
+        <a href="https://github.com/sherlocked1/uae-plate-picker" target="_blank" rel="noreferrer">
           github.com/Sherlocked1/uae-plate-picker
         </a>
       </p>
